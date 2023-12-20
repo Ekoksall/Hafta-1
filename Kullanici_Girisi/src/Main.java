@@ -1,11 +1,9 @@
-
-import javax.sound.midi.SysexMessage;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String userName, password, nPasword;
-        int secim;
+        String userName, password;
+        int secim ;
 
         Scanner grs = new Scanner(System.in);
 
@@ -14,7 +12,7 @@ public class Main {
         System.out.print("Lütfen Şifrenizi Giriniz :");
         password = grs.nextLine();
 
-        if (userName.equals("patika") && password.equals("Java123")) {
+        if (userName.equals("patika") && password.equals("java123")) {
             System.out.println("Giriş Başarılı!");
         } else {
             System.out.println("Bilgiler Yanlış! Şifrenizi Sıfırlamak İster misiniz?");
@@ -24,29 +22,22 @@ public class Main {
             secim = grs.nextInt();
             grs.nextLine();
 
-            switch (secim) {
-                case 1:
-                    System.out.println("Yeni Şifre Giriniz :");
-                    nPasword = grs.nextLine();
-                    if (!nPasword.equals(password)) {
-                        System.out.println("Şifre oluşturuldu!");
-                    }else{
-                        System.out.println("Yeni şifreniz eski şifre ile aynı olamaz. Şifre oluşturulamadı.");
-                    }
-                    break;
-                case 2:
-                    System.out.print("Şifrenizi Tekrar Giriniz :");
-                    password = grs.nextLine();
-                    if (password.equals(password)) {
-                        System.out.print("Giriş Başarılı!");
-                    } else {
-                        System.out.print("Şifrenizi Tekrar Giriniz :");
-                        password = grs.nextLine();
-                    }
-                    break;
-                default:
-                    System.out.println("Lütfen İşlem Yapınız!");
+            if (secim == 1 ) {
+                System.out.print("Yeni Şifrenizi Giriniz :");
+                String npassword = grs.nextLine();
+                if (!npassword.equals(password)){
+                    System.out.print("Şifre Oluşturuldu!");
+                }else {
+                    System.out.print("Şifre Oluşturulamadı!Lütfen Eski Şifrenizden Başka Bir Şifre Giriniz!");
+                }
+            } else if (secim == 2){
+                System.out.print("Lütfen Giriş Bilgilerinizi Kontrol Ediniz!");
+            }else{
+                System.out.print("Lütfen 1 veya 2' yi Seçiniz!");
             }
+
+
+
         }
 
     }
